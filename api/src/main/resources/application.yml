@@ -1,0 +1,15 @@
+spring.application.name: employee-api
+server.port: 8111
+
+mock.employee.api.url: http://localhost:8112
+
+resilience4j.ratelimiter:
+  instances:
+    employeeController:
+      limitForPeriod: 5
+      limitRefreshPeriod: 5s
+      timeoutDuration: 1s
+
+logging:
+  level:
+    io.github.resilience4j.ratelimiter: DEBUG
